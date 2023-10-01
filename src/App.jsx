@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import { EVENT } from './assets/consts'
+import { EVENT } from './consts'
 import HomePage from './pages/Home.jsx'
 import AboutPage from './pages/About.jsx'
 
@@ -16,7 +15,8 @@ useEffect(()=> {
   return() => {
     window.removeEventListener(EVENT.PUSHSTATE, onLocationChange)
     window.removeEventListener(EVENT.POPSTATE, onLocationChange)
-  }, []})
+  }
+}, [])
 
   return (
     <main>
