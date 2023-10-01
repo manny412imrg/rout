@@ -15,8 +15,15 @@ export function navigate (href){
  } 
 
  export function Link({ target, to, ...props }){
-   const handleClick = () =>{
+   const handleClick = (event) =>{
+    const isMainEvent = event.button === 0 //primary click
+    const isModifiedEvent = event.metaKey || event.altkey || event.ctrlKey || event.shiftkey
+    const isManageableEvent = target === undefined || target ==='_self'
+
+    if(isMainEvent && isManageableEvent && !isModifiedEvent){
+      event.preventDefault()
       navigate(to)
+    }   
    }
    return <a onClick={handleClick} href={to} target={target} {...props}/>
   }
