@@ -5,8 +5,10 @@ import AboutPage from './pages/About.jsx'
 
 function App() {
   const [ currentPath, setCurrentPath]= useState(window.location.pathname)
+  /* window.Location.pathname te devuelve el pahh: https://pag.com"/home/aqui"
+  el path /home/aqui lo devuelve como solo lectura.*/
 
-useEffect(()=> {
+  useEffect(()=> {
   const onLocationChange = () => {
     setCurrentPath(window.Location.pathname)
   }
